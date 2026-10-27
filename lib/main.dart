@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.green,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
       home: const TodoPage(),
@@ -26,10 +24,7 @@ class MyApp extends StatelessWidget {
 
 // ข้อมูลของสิ่งของหนึ่งรายการ
 class Todo {
-  Todo({
-    required this.title,
-    this.isDone = false,
-  });
+  Todo({required this.title, this.isDone = false});
 
   final String title;
   bool isDone;
@@ -45,8 +40,7 @@ class TodoPage extends StatefulWidget {
 
 class _TodoPageState extends State<TodoPage> {
   // ใช้อ่านและล้างข้อความในช่องกรอก
-  final TextEditingController taskController =
-      TextEditingController();
+  final TextEditingController taskController = TextEditingController();
 
   // รายการสิ่งของที่ต้องเตรียม
   final List<Todo> todos = [
@@ -66,9 +60,7 @@ class _TodoPageState extends State<TodoPage> {
 
     // เปลี่ยนข้อมูลและแจ้งให้หน้าจออัปเดต
     setState(() {
-      todos.add(
-        Todo(title: text),
-      );
+      todos.add(Todo(title: text));
     });
 
     // ล้างช่องกรอกเพื่อเตรียมพิมพ์รายการต่อไป
@@ -100,9 +92,7 @@ class _TodoPageState extends State<TodoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('กระเป๋าพร้อมเที่ยว'),
-      ),
+      appBar: AppBar(title: const Text('กระเป๋าพร้อมเที่ยว')),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -111,10 +101,7 @@ class _TodoPageState extends State<TodoPage> {
             children: [
               const Text(
                 'เตรียมของให้พร้อมก่อนออกเดินทาง',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
 
@@ -130,10 +117,7 @@ class _TodoPageState extends State<TodoPage> {
               const SizedBox(height: 12),
 
               // ปุ่มเพิ่มสิ่งของ
-              ElevatedButton(
-                onPressed: addTodo,
-                child: const Text('เพิ่มของ'),
-              ),
+              ElevatedButton(onPressed: addTodo, child: const Text('เพิ่มของ')),
               const SizedBox(height: 16),
 
               // ส่วนแสดงรายการ ใช้พื้นที่ที่เหลือ
@@ -155,10 +139,7 @@ class _TodoPageState extends State<TodoPage> {
                               leading: Checkbox(
                                 value: todo.isDone,
                                 onChanged: (value) {
-                                  toggleTodo(
-                                    todo,
-                                    value ?? false,
-                                  );
+                                  toggleTodo(todo, value ?? false);
                                 },
                               ),
                               title: Text(
@@ -170,9 +151,7 @@ class _TodoPageState extends State<TodoPage> {
                                 ),
                               ),
                               trailing: IconButton(
-                                icon: const Icon(
-                                  Icons.delete_outline,
-                                ),
+                                icon: const Icon(Icons.delete_outline),
                                 tooltip: 'ลบรายการ',
                                 onPressed: () {
                                   removeTodo(todo);
