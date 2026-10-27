@@ -120,6 +120,12 @@ class _TodoPageState extends State<TodoPage> {
               ElevatedButton(onPressed: addTodo, child: const Text('เพิ่มของ')),
               const SizedBox(height: 16),
 
+              // แสดงจำนวนสิ่งของที่ตเลือกแล้ว จากจำนวนทั้งหมด
+              Text('เตรียมแล้ว ${todos.where((todo) => todo.isDone).length} จาก ${todos.length} รายการ',
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 16),
+
               // ส่วนแสดงรายการ ใช้พื้นที่ที่เหลือ
               Expanded(
                 child: todos.isEmpty
