@@ -42,10 +42,10 @@ class _TodoPageState extends State<TodoPage> {
   // ใช้อ่านและล้างข้อความในช่องกรอก
   final TextEditingController taskController = TextEditingController();
 
-  // รายการสิ่งของที่ต้องเตรียม
+  // รายการสิ่งงานที่ต้องทำ
   final List<Todo> todos = [
-    Todo(title: 'เสื้อผ้า'),
-    Todo(title: 'ที่ชาร์จโทรศัพท์'),
+    Todo(title: 'เปิดไฟหน้าร้าน'),
+    Todo(title: 'ตรวจสินค้า'),
   ];
 
   // เพิ่มสิ่งของใหม่
@@ -92,7 +92,7 @@ class _TodoPageState extends State<TodoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('กระเป๋าพร้อมเที่ยว')),
+      appBar: AppBar(title: const Text('เช็กงานเปิดร้าน')),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -100,28 +100,28 @@ class _TodoPageState extends State<TodoPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Text(
-                'เตรียมของให้พร้อมก่อนออกเดินทาง',
+                'เช็กงานให้พร้อมก่อนเปิดร้าน',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
 
-              // ช่องกรอกสิ่งของที่ต้องเตรียม
+              // ช่องกรอกสิ่งงานที่ต้องทำ
               TextField(
                 controller: taskController,
                 decoration: const InputDecoration(
-                  labelText: 'ของที่ต้องเตรียม',
-                  hintText: 'เช่น เสื้อผ้า ที่ชาร์จ ยาประจำตัว',
+                  labelText: 'งานที่ต้องทำ',
+                  hintText: 'เช่น เตรียมเงินทอน',
                   border: OutlineInputBorder(),
                 ),
               ),
               const SizedBox(height: 12),
 
               // ปุ่มเพิ่มสิ่งของ
-              ElevatedButton(onPressed: addTodo, child: const Text('เพิ่มของ')),
+              ElevatedButton(onPressed: addTodo, child: const Text('เพิ่มงาน')),
               const SizedBox(height: 16),
 
               // แสดงจำนวนสิ่งของที่ตเลือกแล้ว จากจำนวนทั้งหมด
-              Text('เตรียมแล้ว ${todos.where((todo) => todo.isDone).length} จาก ${todos.length} รายการ',
+              Text('เสร็จแล้ว ${todos.where((todo) => todo.isDone).length} จาก ${todos.length} รายการ',
                 style: const TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 16),
@@ -131,7 +131,7 @@ class _TodoPageState extends State<TodoPage> {
                 child: todos.isEmpty
                     ? const Center(
                         child: Text(
-                          'ยังไม่มีของที่ต้องเตรียม ลองเพิ่มรายการแรกกัน!',
+                          'ยังไม่มีงาน ลองเพิ่มรายการแรกกัน!',
                         ),
                       )
                     : ListView.builder(
