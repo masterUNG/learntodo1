@@ -46,6 +46,7 @@ class _TodoPageState extends State<TodoPage> {
   final List<Todo> todos = [
     Todo(title: 'เปิดไฟหน้าร้าน'),
     Todo(title: 'ตรวจสินค้า'),
+    Todo(title: 'แลกเปลี่ยนเงินทอน'),
   ];
 
   // เพิ่มสิ่งของใหม่
