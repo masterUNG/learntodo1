@@ -69,6 +69,10 @@ class _TodoPageState extends State<TodoPage> {
 
   // เปลี่ยนสถานะเตรียมแล้ว / ยังไม่เตรียม
   void toggleTodo(Todo todo, bool isDone) {
+
+    // แสดงข้อความใน console เพื่อช่วยตรวจสอบการทำงาน
+    debugPrint('## เปลี่ยนสถานะ ${todo.title} เป็น $isDone');
+
     setState(() {
       todo.isDone = isDone;
     });
@@ -76,6 +80,10 @@ class _TodoPageState extends State<TodoPage> {
 
   // ลบสิ่งของที่เลือกออกจากรายการ
   void removeTodo(Todo todo) {
+
+    // แสดงข้อความใน console เพื่อช่วยตรวจสอบการทำงาน
+    debugPrint('## ลบรายการ ${todo.title}');
+
     setState(() {
       todos.remove(todo);
     });
